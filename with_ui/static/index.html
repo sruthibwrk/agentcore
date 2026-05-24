@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoBank Memory Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="chip">FAQ Assistant</p>
+      <h1>Customer Support Chat</h1>
+      <p class="subtitle">Ask a question and get a clean answer from your deployed assistant.</p>
+    </header>
+
+    <section class="grid">
+      <aside class="panel">
+        <h2>Agent</h2>
+        <label>Agent Key</label>
+        <input id="agentId" value="ba" placeholder="Example: ba" />
+        <p class="hint">Use the key from your AgentCore config.</p>
+
+        <hr />
+
+        <h2>Try Prompts</h2>
+        <div class="prompt-list">
+          <button class="prompt-btn">Can I use my card in Europe without extra charges?</button>
+          <button class="prompt-btn">which country i was talking about in my last question ?</button>
+          <button class="prompt-btn">Remember my preference and answer my question</button>
+        </div>
+      </aside>
+
+      <section class="panel chat-panel">
+        <div class="chat-head">
+          <h2>Chat</h2>
+          <span id="turnCounter" class="mono">Turns: 0</span>
+        </div>
+
+        <div id="chatLog" class="chat-log"></div>
+
+        <div class="composer">
+          <textarea id="promptInput" placeholder="Type your question..."></textarea>
+          <button id="sendBtn" class="btn">Send</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

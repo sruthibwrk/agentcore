@@ -1,0 +1,19 @@
+services:
+  neobank-memory-ui:
+    build:
+      context: ..
+      dockerfile: with_ui/Dockerfile
+    container_name: neobank-memory-ui
+    ports:
+      - "8090:8090"
+    env_file:
+      - ../.env
+    environment:
+      PYTHONUNBUFFERED: "1"
+      AGENTCORE_SUPPRESS_RECOMMENDATION: "1"
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AGENTCORE_AGENT: "${AGENTCORE_AGENT:-ba1}"
+    volumes:
+      - ../.bedrock_agentcore.yaml:/app/.bedrock_agentcore.yaml:ro
+      - ${HOME}/.aws:/root/.aws:ro
+    restart: unless-stopped
