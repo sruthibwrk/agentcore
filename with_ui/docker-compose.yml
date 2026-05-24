@@ -15,5 +15,5 @@ services:
       AGENTCORE_AGENT: "${AGENTCORE_AGENT:-ba1}"
     volumes:
       - ../.bedrock_agentcore.yaml:/app/.bedrock_agentcore.yaml:ro
-      - /home/ubuntu/.aws:/root/.aws:ro
+      - ${HOME}/.aws:/root/.aws:ro
     restart: unless-stopped
